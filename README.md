@@ -4,11 +4,13 @@
 
 This project analyzes RNA-seq gene expression data from The Cancer Genome Atlas (TCGA) for head and neck squamous cell carcinoma (HNSC).
 
-The aim is to identify genes that are differentially expressed between tumour and normal tissue and investigate the biological processes and pathways associated with these changes.
+The analysis compares tumour and normal tissue to identify differentially expressed genes and investigate the biological processes and pathways associated with these transcriptional changes.
+
+The project was developed as a beginner-to-intermediate bioinformatics portfolio project using R and Bioconductor.
 
 ## Research Question
 
-**Which genes are significantly differentially expressed between HNSC tumour and normal tissue, and what biological processes and pathways do these genes regulate?**
+**Which genes are differentially expressed between HNSC tumour and normal tissue, and what biological processes and pathways are associated with these changes?**
 
 ## Dataset
 
@@ -21,80 +23,63 @@ The aim is to identify genes that are differentially expressed between tumour an
 
 ## Analysis Workflow
 
-1. Retrieved TCGA-HNSC RNA-seq data.
-2. Examined sample types and clinical information.
+1. Retrieved TCGA-HNSC RNA-seq data using `TCGAbiolinks`.
+2. Examined sample types and sample information.
 3. Removed duplicate tumour-normal sample barcodes.
-4. Filtered low-expression genes.
+4. Filtered genes with low expression.
 5. Performed variance-stabilizing transformation.
-6. Visualized sample variation using PCA.
+6. Visualized sample-level variation using principal component analysis (PCA).
 7. Performed differential expression analysis using DESeq2.
-8. Generated volcano plots and heatmaps.
-9. Performed Gene Ontology (GO) enrichment analysis.
-10. Performed pathway enrichment analysis.
-11. Examined log2 fold-change patterns.
-12. Interpreted the biological processes and pathways associated with differentially expressed genes.
+8. Annotated Ensembl gene identifiers with gene symbols and gene descriptions.
+9. Identified significantly differentially expressed genes.
+10. Performed Gene Ontology (GO) enrichment analysis.
+11. Performed KEGG pathway enrichment analysis.
+12. Generated a heatmap of differentially expressed genes.
+13. Visualized representative gene log2 fold-change values.
+14. Saved analysis results as CSV files for reproducibility.
 
-## Tools Used
+## Differential Expression Results
+
+Using an adjusted p-value cutoff of **< 0.05** and an absolute log2 fold-change cutoff of **≥ 1**, the analysis identified:
+
+- **612 significant differentially expressed genes**
+- **274 upregulated genes**
+- **338 downregulated genes**
+
+This indicates substantial transcriptional differences between HNSC tumour and normal tissue.
+
+## Functional Enrichment Findings
+
+GO enrichment analysis highlighted biological processes associated with:
+
+- Extracellular matrix organization
+- Cell division
+- Immune-associated biological processes
+- B-cell mediated and adaptive immune functions
+
+Pathway analysis also highlighted pathways including:
+
+- ECM-receptor interaction
+- Integrin-related signalling
+
+These findings suggest changes in extracellular matrix organization, cellular proliferation and immune-associated processes within HNSC tumour tissue.
+
+## Visualizations
+
+The `figures/` directory contains the main visual outputs from the analysis:
+
+- GO enrichment bar plot
+- GO enrichment dot plot
+- Differentially expressed gene heatmap
+- Pathway enrichment plots
+- Representative gene log2 fold-change plot
+
+## Tools and Packages
+
+### Programming and Analysis
 
 - R
 - RStudio
 - Bioconductor
-- TCGAbiolinks
-- DESeq2
-- clusterProfiler
-- survival
-- survminer
-- org.Hs.eg.db
-- ggplot2
 
-## Key Findings
-
-Differential expression analysis showed substantial transcriptional differences between HNSC tumour and normal tissue.
-
-Functional enrichment analysis highlighted biological processes related to extracellular matrix organization, cell division and immune-associated functions.
-
-Pathway analysis also highlighted pathways including ECM-receptor interaction and integrin signalling.
-
-These results provide a basis for further investigation of immune-associated transcriptional patterns in HNSC.
-
-## Visualizations
-
-The `figures/` folder contains the main visual outputs from the analysis, including:
-
-- PCA plot
-- Volcano plot
-- Differentially expressed gene heatmap
-- GO enrichment bar plot
-- GO enrichment dot plot
-- Pathway enrichment plots
-- log2 fold-change plot
-
-## Project Status
-
-This is an ongoing bioinformatics portfolio project.
-
-The current stage focuses on tumour-versus-normal differential expression and functional enrichment. The next stage will investigate immune-associated genes and their relationship with patient survival.
-
-## Repository Structure
-
-```text
-TCGA-HNSC-RNAseq-Analysis/
-│
-├── README.md
-│
-└── figures/
-    ├── README.md
-    ├── volcano_plot.png
-    ├── GO_enrichment_barplot.png
-    ├── GO_enrichment_dotplot.png
-    ├── DEG_heatmap.png
-    ├── pathway_enrichment_1.png
-    ├── pathway_enrichment_2.png
-    └── log2FC_plot.png
-```
-
-## Author
-
-**Subhanu SV**  
-MSc Biotechnology  
-St. Joseph's University, Bengaluru
+### R Packages
