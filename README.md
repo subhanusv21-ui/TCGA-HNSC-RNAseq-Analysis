@@ -83,3 +83,61 @@ The `figures/` directory contains the main visual outputs from the analysis:
 - Bioconductor
 
 ### R Packages
+
+- TCGAbiolinks
+- DESeq2
+- clusterProfiler
+- AnnotationDbi
+- org.Hs.eg.db
+- survival
+- survminer
+- ggplot2
+
+## Repository Structure
+
+```text
+TCGA-HNSC-RNAseq-Analysis/
+│
+├── README.md
+├── TCGA_HNSC_analysis.R
+├── TCGA_HNSC_analysis.Rproj
+│
+├── figures/
+│   ├── GO_enrichment_barplot.png
+│   ├── GO_enrichment_dotplot.png
+│   ├── DEG_heatmap.png
+│   ├── pathway_enrichment_1.png
+│   ├── pathway_enrichment_2.png
+│   └── log2FC_plot.png
+│
+└── results/
+    ├── HNSC_DEG_results.csv
+    ├── HNSC_GO_upregulated.csv
+    ├── HNSC_GO_downregulated.csv
+    ├── HNSC_KEGG_upregulated.csv
+    └── HNSC_KEGG_downregulated.csv
+```
+
+## Project Status
+
+### Completed
+
+- TCGA-HNSC RNA-seq data retrieval
+- Sample processing and filtering
+- PCA
+- Differential expression analysis
+- Gene annotation
+- GO enrichment analysis
+- KEGG pathway analysis
+- Visualization
+- Export of analysis results
+
+### Planned Next Step
+
+The next stage of the project will investigate **immune-associated gene expression patterns and their relationship with patient survival** using clinical and survival data from TCGA-HNSC.
+
+## Author
+
+**Subhanu SV**  
+MSc Biotechnology  
+St. Joseph's University, Bengaluru
